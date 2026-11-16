@@ -27,3 +27,18 @@ Route::post('/logout', [LoginController::class, 'destroy'])
 // Register
 Route::get('/register', [RegisteredWorkshopController::class, 'create']);
 Route::post('/register', [RegisteredWorkshopController::class, 'store']);
+
+//Kasir cepat
+Route::get('/kasir', function () {
+    return Inertia::render('KasirCepat');
+})->name('kasir');
+
+//servis
+Route::get('/servis', function () {
+    return Inertia::render('Servis');
+})->name('servis');
+
+//tambah servis
+Route::get('/servis/tambah', function () {
+    return Inertia::render('TambahServis');
+})->name('servis.tambah');

@@ -1,3 +1,4 @@
+
 <script setup>
 import { ref } from 'vue';
 import { Link } from '@inertiajs/vue3';
@@ -6,6 +7,17 @@ const isCollapsed = ref(false);
 const activeMenu = ref('Beranda');
 const selectedModul = ref('Operasional');
 const isModulOpen = ref(false);
+
+const isReferensiOpen = ref(false);
+
+const referensiMenus = [
+  { name: 'Kategori Sparepart', href: '/kategori-sparepart' },
+  { name: 'Satuan Sparepart', href: '/satuan-sparepart' },
+  { name: 'Merk Sparepart', href: '/merk-sparepart' },
+  { name: 'Lokasi Stok', href: '/lokasi-stok' },
+  { name: 'Merk Kendaraan', href: '/merk-kendaraan' },
+  { name: 'Kategori Biaya', href: '/kategori-biaya' },
+];
 
 const moduls = [
   { name: 'Operasional', icon: 'wrench' },
@@ -31,7 +43,7 @@ const operasionalMenus = [
 </script>
 
 <template>
- <aside
+  <aside
     :class="[
       'sticky top-0 h-screen shrink-0 flex flex-col justify-between bg-[#101820] text-slate-300 transition-all duration-300 select-none overflow-hidden border-r border-slate-800/80',
       isCollapsed ? 'w-20' : 'w-72'
@@ -54,7 +66,8 @@ const operasionalMenus = [
     </svg>
 
     <!-- Bagian Atas & Menu -->
-    <div class="relative z-10 p-4 space-y-5">
+    <div class="relative z-10 p-4 space-y-5 flex-1 min-h-0 overflow-y-auto">
+
       <!-- Header Logo -->
       <div class="flex items-center justify-between pt-1">
         <div class="flex items-center gap-3">
@@ -107,6 +120,7 @@ const operasionalMenus = [
             >
               <path stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
             </svg>
+
             <!-- Ikon Calculator jika Akunting -->
             <svg
               v-else
@@ -170,6 +184,7 @@ const operasionalMenus = [
             >
               <path stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
             </svg>
+
             <!-- Ikon Calculator -->
             <svg
               v-else
@@ -223,6 +238,7 @@ const operasionalMenus = [
         <p v-if="!isCollapsed" class="px-3 text-[11px] font-bold tracking-wider text-slate-500 uppercase mb-2">
           Transaksi
         </p>
+
         <Link
           v-for="item in transaksiMenus"
           :key="item.name"
@@ -238,12 +254,15 @@ const operasionalMenus = [
           <svg v-if="item.icon === 'basket'" class="h-5 w-5 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 11h14l-1.5 8h-11L5 11zm4-6l-2 6m8-6l2 6M9 14v2m3-2v2m3-2v2" />
           </svg>
+
           <svg v-else-if="item.icon === 'wrench'" class="h-5 w-5 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
           </svg>
+
           <svg v-else-if="item.icon === 'cart'" class="h-5 w-5 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
           </svg>
+
           <span v-if="!isCollapsed">{{ item.name }}</span>
         </Link>
       </div>
@@ -253,6 +272,7 @@ const operasionalMenus = [
         <p v-if="!isCollapsed" class="px-3 text-[11px] font-bold tracking-wider text-slate-500 uppercase mb-2">
           Data Operasional
         </p>
+
         <Link
           v-for="item in operasionalMenus"
           :key="item.name"
@@ -268,19 +288,99 @@ const operasionalMenus = [
           <svg v-if="item.icon === 'users'" class="h-5 w-5 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
+
           <svg v-else-if="item.icon === 'cubes'" class="h-5 w-5 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
           </svg>
+
           <svg v-else-if="item.icon === 'clipboard'" class="h-5 w-5 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
           </svg>
+
           <span v-if="!isCollapsed">{{ item.name }}</span>
         </Link>
       </div>
+
+      <!-- Kategori: DATA REFERENSI -->
+      <div class="space-y-1">
+        <button
+          type="button"
+          @click="isReferensiOpen = !isReferensiOpen"
+          :class="[
+            'flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-medium transition',
+            isReferensiOpen
+              ? 'bg-emerald-500/15 text-emerald-300'
+              : 'text-slate-300 hover:bg-white/5 hover:text-white'
+          ]"
+        >
+          <div class="flex items-center gap-3">
+            <!-- Ikon Database -->
+            <svg
+              class="h-5 w-5 shrink-0 text-slate-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <ellipse cx="12" cy="5" rx="9" ry="3" />
+              <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />
+              <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3" />
+            </svg>
+
+            <span v-if="!isCollapsed">Data Referensi</span>
+          </div>
+
+          <!-- Chevron -->
+          <svg
+            v-if="!isCollapsed"
+            :class="[
+              'h-4 w-4 text-slate-400 transition-transform duration-200',
+              isReferensiOpen ? 'rotate-180' : ''
+            ]"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        <!-- Submenu Data Referensi -->
+        <div
+          v-if="isReferensiOpen && !isCollapsed"
+          class="ml-5 space-y-1 border-l border-slate-700 pl-3"
+        >
+          <Link
+            v-for="item in referensiMenus"
+            :key="item.name"
+            :href="item.href"
+            @click="activeMenu = item.name"
+            :class="[
+              'flex items-center gap-3 rounded-lg px-3 py-2.5 text-[13px] font-medium transition',
+              activeMenu === item.name
+                ? 'bg-emerald-500/15 text-emerald-300'
+                : 'text-slate-400 hover:bg-white/5 hover:text-white'
+            ]"
+          >
+            <span
+              :class="[
+                'h-1.5 w-1.5 shrink-0 rounded-full',
+                activeMenu === item.name
+                  ? 'bg-emerald-400'
+                  : 'bg-slate-600'
+              ]"
+            ></span>
+
+            <span>{{ item.name }}</span>
+          </Link>
+        </div>
+      </div>
+
     </div>
 
     <!-- Profil User di Bawah -->
-    <div class="relative z-10 p-4">
+    <div class="relative z-10 p-4 shrink-0">
       <div
         class="flex items-center gap-3 rounded-2xl bg-white/[0.05] p-3 border border-white/[0.07]"
       >
@@ -289,6 +389,7 @@ const operasionalMenus = [
         >
           S
         </div>
+
         <div v-if="!isCollapsed" class="overflow-hidden">
           <p class="truncate text-sm font-semibold text-white">Super Admin</p>
           <p class="truncate text-xs text-slate-400">Owner</p>
