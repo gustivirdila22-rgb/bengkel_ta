@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 
@@ -24,7 +26,7 @@ class RegisteredWorkshopController extends Controller
             'password' => 'required|string|min:8',
         ]);
 
-        User::create([
+        $user = User::create([
             'workshop_name' => $validated['workshop_name'],
             'name' => $validated['workshop_name'],
             'email' => $validated['email'],
@@ -32,9 +34,12 @@ class RegisteredWorkshopController extends Controller
             'password' => Hash::make($validated['password']),
         ]);
 
-        return redirect('/login')->with(
-            'success',
-            'Pendaftaran berhasil! Silakan masuk.'
-        );
+        // Kirim email verifikasi otomatis
+        event(new Registered($user));
+
+        // Login otomatis agar user bisa diarahkan ke halaman cek verifikasi email
+        Auth::login($user);
+
+        return redirect()->route('verification.notice');
     }
 }
