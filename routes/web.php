@@ -5,7 +5,7 @@ use Inertia\Inertia;
 
 // Buka halaman utama langsung ke Beranda
 Route::get('/', function () {
-    return Inertia::render('Beranda');
+    return Inertia::render('Welcome');
 });
 
 // Rute saat menu "Beranda" di sidebar diklik
