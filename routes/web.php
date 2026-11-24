@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisteredWorkshopController;
+use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\KendaraanController;
 
 // Halaman utama
 Route::get('/', function () {
@@ -66,3 +68,12 @@ Route::post('/email/verification-notification', function (Request $request) {
 
     return back()->with('status', 'verification-link-sent');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+//pelanggan & kendaraan
+Route::resource('pelanggan', PelangganController::class)
+    ->only(['index', 'store', 'update', 'destroy']);
+
+Route::resource('kendaraan', KendaraanController::class)
+    ->only(['store', 'update', 'destroy']);
+
+
