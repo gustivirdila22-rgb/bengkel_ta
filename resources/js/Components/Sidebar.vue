@@ -39,6 +39,8 @@ const operasionalMenus = [
   { name: 'Pelanggan & Kendaraan', href: '/pelanggan', icon: 'users' },
   { name: 'Sparepart', href: '/sparepart', icon: 'cubes' },
   { name: 'Jasa Servis', href: '/jasa-servis', icon: 'clipboard' },
+  { name: 'Mekanik', href: '/mekanik', icon: 'mechanic' },
+  { name: 'Supplier', href: '/supplier', icon: 'truck' },
 ];
 </script>
 
@@ -109,7 +111,6 @@ const operasionalMenus = [
           class="flex w-full items-center justify-between rounded-2xl bg-white/[0.06] px-3.5 py-3 border border-white/[0.06] text-left hover:bg-white/[0.09] transition"
         >
           <div class="flex items-center gap-3">
-            <!-- Ikon Wrench jika Operasional -->
             <svg
               v-if="selectedModul === 'Operasional'"
               class="h-5 w-5 text-emerald-400"
@@ -121,7 +122,6 @@ const operasionalMenus = [
               <path stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
             </svg>
 
-            <!-- Ikon Calculator jika Akunting -->
             <svg
               v-else
               class="h-5 w-5 text-emerald-400"
@@ -159,7 +159,6 @@ const operasionalMenus = [
           </svg>
         </button>
 
-        <!-- Pilihan List Modul saat diklik -->
         <div v-if="isModulOpen" class="space-y-1 pt-1">
           <button
             v-for="modul in moduls"
@@ -173,7 +172,6 @@ const operasionalMenus = [
                 : 'text-slate-400 hover:bg-white/[0.04] hover:text-slate-200'
             ]"
           >
-            <!-- Ikon Wrench -->
             <svg
               v-if="modul.icon === 'wrench'"
               :class="['h-5 w-5 shrink-0', selectedModul === modul.name ? 'text-emerald-400' : 'text-slate-400']"
@@ -185,7 +183,6 @@ const operasionalMenus = [
               <path stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
             </svg>
 
-            <!-- Ikon Calculator -->
             <svg
               v-else
               :class="['h-5 w-5 shrink-0', selectedModul === modul.name ? 'text-emerald-400' : 'text-slate-400']"
@@ -297,6 +294,38 @@ const operasionalMenus = [
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
           </svg>
 
+          <!-- IKON MEKANIK -->
+          <svg
+            v-else-if="item.icon === 'mechanic'"
+            class="h-5 w-5 shrink-0 text-slate-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 15.5a3.5 3.5 0 100-7 3.5 3.5 0 000 7zM19.4 15a1.7 1.7 0 00.34 1.88l.06.06-1.7 2.94-.08-.02a1.7 1.7 0 00-1.77.45l-.05.06h-3.4l-.05-.06a1.7 1.7 0 00-1.77-.45l-.08.02-1.7-2.94.06-.06A1.7 1.7 0 009.6 15l-.02-.08v-3.4L9.6 11a1.7 1.7 0 00-.34-1.88L9.2 9.06l1.7-2.94.08.02a1.7 1.7 0 001.77-.45l.05-.06h3.4l.05.06a1.7 1.7 0 001.77.45l.08-.02 1.7 2.94-.06.06A1.7 1.7 0 0019.4 11l.02.08v3.4z"
+            />
+          </svg>
+
+          <!-- IKON SUPPLIER -->
+          <svg
+            v-else-if="item.icon === 'truck'"
+            class="h-5 w-5 shrink-0 text-slate-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 6h11v11H3zM14 10h4l3 4v3h-7zM7.5 20a2 2 0 100-4 2 2 0 000 4zM17.5 20a2 2 0 100-4 2 2 0 000 4z"
+            />
+          </svg>
+
           <span v-if="!isCollapsed">{{ item.name }}</span>
         </Link>
       </div>
@@ -314,7 +343,6 @@ const operasionalMenus = [
           ]"
         >
           <div class="flex items-center gap-3">
-            <!-- Ikon Database -->
             <svg
               class="h-5 w-5 shrink-0 text-slate-400"
               fill="none"
@@ -330,7 +358,6 @@ const operasionalMenus = [
             <span v-if="!isCollapsed">Data Referensi</span>
           </div>
 
-          <!-- Chevron -->
           <svg
             v-if="!isCollapsed"
             :class="[
@@ -346,7 +373,6 @@ const operasionalMenus = [
           </svg>
         </button>
 
-        <!-- Submenu Data Referensi -->
         <div
           v-if="isReferensiOpen && !isCollapsed"
           class="ml-5 space-y-1 border-l border-slate-700 pl-3"
