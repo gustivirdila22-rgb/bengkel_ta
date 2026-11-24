@@ -1,4 +1,3 @@
-
 <?php
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -114,6 +113,22 @@ Route::put('/kategori-jasa/{kategoriJasa}', [KategoriJasaController::class, 'upd
 
 Route::delete('/kategori-jasa/{kategoriJasa}', [KategoriJasaController::class, 'destroy'])
     ->name('kategori-jasa.destroy');
+
+// ========================================
+// PEMBELIAN
+// ========================================
+
+Route::get('/pembelian', function () {
+    return Inertia::render('Pembelian');
+})->name('pembelian.index');
+
+// ========================================
+// SPAREPART
+// ========================================
+
+Route::get('/sparepart', function () {
+    return Inertia::render('Sparepart');
+})->name('sparepart.index');
 
 // ========================================
 // VERIFIKASI EMAIL

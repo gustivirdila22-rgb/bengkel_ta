@@ -17,6 +17,7 @@ const referensiMenus = [
   { name: 'Lokasi Stok', href: '/lokasi-stok' },
   { name: 'Merk Kendaraan', href: '/merk-kendaraan' },
   { name: 'Kategori Biaya', href: '/kategori-biaya' },
+  { name: 'Pembelian', href: '/pembelian', icon: 'cart' },
 ];
 
 const moduls = [
