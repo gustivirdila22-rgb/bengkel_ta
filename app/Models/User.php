@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Supplier;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 #[Fillable(['workshop_name',
     'name',
@@ -33,4 +35,9 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
+
+    public function suppliers(): HasMany
+{
+    return $this->hasMany(Supplier::class);
+}
 }

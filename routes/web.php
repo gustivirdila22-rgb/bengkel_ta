@@ -11,6 +11,7 @@ use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\JasaServisController;
 use App\Http\Controllers\KategoriJasaController;
+use App\Http\Controllers\SupplierController;
 
 // ========================================
 // HALAMAN UTAMA
@@ -129,6 +130,28 @@ Route::get('/pembelian', function () {
 Route::get('/sparepart', function () {
     return Inertia::render('Sparepart');
 })->name('sparepart.index');
+
+// ========================================
+// SUPPLIER
+// ========================================
+
+Route::middleware('auth')->group(function () {
+    Route::get('/supplier', [SupplierController::class, 'index'])
+        ->name('supplier.index');
+
+    Route::get('/supplier/create', [SupplierController::class, 'create'])
+        ->name('supplier.create');
+
+    Route::post('/supplier', [SupplierController::class, 'store'])
+        ->name('supplier.store');
+    Route::delete('/supplier/{supplier}', [SupplierController::class, 'destroy'])
+    ->name('supplier.destroy');
+    Route::get('/supplier/{supplier}/edit', [SupplierController::class, 'edit'])
+    ->name('supplier.edit');
+    Route::put('/supplier/{supplier}', [SupplierController::class, 'update'])
+        ->name('supplier.update');
+
+});
 
 // ========================================
 // VERIFIKASI EMAIL
