@@ -47,7 +47,7 @@ const formatRupiah = (angka) => {
                     v-model="search"
                     type="text"
                     placeholder="Cari nama mekanik..."
-                    class="w-full rounded-lg border border-slate-200 py-2.5 pl-9 pr-3 text-sm outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500"
+                    class="w-full rounded-lg border border-slate-200 py-2.5 pl-9 pr-3 text-sm outline-none transition focus:border-[#009966] focus:ring-1 focus:ring-[#009966]"
                 />
             </div>
         </div>
@@ -63,7 +63,7 @@ const formatRupiah = (angka) => {
 
                         <th class="px-4 py-4 text-center font-medium">
                             <span class="inline-flex items-center gap-1">
-                                <span class="text-green-600">↕</span>
+                                <span class="text-[#009966]">↕</span>
                                 Servis selesai
                             </span>
                         </th>
@@ -135,7 +135,7 @@ const formatRupiah = (angka) => {
 
                 <select
                     v-model="perPage"
-                    class="rounded-lg border border-slate-200 bg-white px-3 py-2 outline-none focus:border-green-500"
+                    class="rounded-lg border border-slate-200 bg-white px-3 py-2 outline-none focus:border-[#009966]"
                 >
                     <option :value="20">20</option>
                     <option :value="50">50</option>
@@ -160,7 +160,7 @@ const formatRupiah = (angka) => {
                 </button>
 
                 <button
-                    class="rounded-lg bg-green-600 px-4 py-2 font-medium text-white"
+                    class="rounded-lg bg-[#009966] px-4 py-2 font-medium text-white"
                 >
                     {{ currentPage }}
                 </button>

@@ -71,7 +71,7 @@ const toggleDetail = (id) => {
             </button>
 
             <button
-                class="flex items-center gap-2 rounded-lg bg-green-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-green-700"
+                class="flex items-center gap-2 rounded-lg bg-[#009966] px-4 py-2.5 text-sm font-medium text-white hover:bg-[#00875B]"
             >
                 <span class="text-lg">+</span>
                 Tambah Mekanik
@@ -87,7 +87,7 @@ const toggleDetail = (id) => {
             </div>
 
             <div class="flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-100 px-3 py-2 text-sm">
-                <span class="h-2 w-2 rounded-full bg-green-500"></span>
+                <span class="h-2 w-2 rounded-full bg-[#009966]"></span>
                 <span class="font-semibold text-slate-900">{{ totalAktif }}</span>
                 <span>masih aktif</span>
                 <span>›</span>
@@ -99,7 +99,7 @@ const toggleDetail = (id) => {
             <button
                 @click="activeTab = 'daftar'"
                 :class="activeTab === 'daftar'
-                    ? 'border-b-2 border-green-600 text-green-700'
+                    ? 'border-b-2 border-[#009966] text-[#009966]'
                     : 'text-slate-500'"
                 class="px-4 pb-3 text-sm font-medium"
             >
@@ -109,7 +109,7 @@ const toggleDetail = (id) => {
             <button
                 @click="activeTab = 'kinerja'"
                 :class="activeTab === 'kinerja'
-                    ? 'border-b-2 border-green-600 text-green-700'
+                    ? 'border-b-2 border-[#009966] text-[#009966]'
                     : 'text-slate-500'"
                 class="px-4 pb-3 text-sm font-medium"
             >
@@ -119,7 +119,7 @@ const toggleDetail = (id) => {
             <button
                 @click="activeTab = 'komisi'"
                 :class="activeTab === 'komisi'
-                    ? 'border-b-2 border-green-600 text-green-700'
+                    ? 'border-b-2 border-[#009966] text-[#009966]'
                     : 'text-slate-500'"
                 class="px-4 pb-3 text-sm font-medium"
             >
@@ -135,7 +135,7 @@ const toggleDetail = (id) => {
                 <button
                     @click="activeSubTab = 'mekanik'"
                     :class="activeSubTab === 'mekanik'
-                        ? 'bg-white text-green-700 shadow-sm'
+                        ? 'bg-white text-[#009966] shadow-sm'
                         : 'text-slate-500'"
                     class="rounded-lg px-3 py-2 text-sm font-medium"
                 >
@@ -145,7 +145,7 @@ const toggleDetail = (id) => {
                 <button
                     @click="activeSubTab = 'ringkasan'"
                     :class="activeSubTab === 'ringkasan'
-                        ? 'bg-white text-green-700 shadow-sm'
+                        ? 'bg-white text-[#009966] shadow-sm'
                         : 'text-slate-500'"
                     class="rounded-lg px-3 py-2 text-sm font-medium"
                 >
@@ -153,8 +153,8 @@ const toggleDetail = (id) => {
                 </button>
             </div>
 
-          <!-- Ringkasan Mekanik -->
-<RingkasanMekanik v-if="activeSubTab === 'ringkasan'" />
+            <!-- Ringkasan Mekanik -->
+            <RingkasanMekanik v-if="activeSubTab === 'ringkasan'" />
 
             <!-- Tabel Daftar Mekanik -->
             <div
@@ -171,7 +171,7 @@ const toggleDetail = (id) => {
                             v-model="search"
                             type="text"
                             placeholder="Cari nama atau kode mekanik..."
-                            class="w-full rounded-lg border border-slate-200 py-2.5 pl-9 pr-3 text-sm outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"
+                            class="w-full rounded-lg border border-slate-200 py-2.5 pl-9 pr-3 text-sm outline-none focus:border-[#009966] focus:ring-1 focus:ring-[#009966]"
                         />
                     </div>
 
@@ -197,7 +197,7 @@ const toggleDetail = (id) => {
                     <button
                         @click="activeFilter = 'semua'"
                         :class="activeFilter === 'semua'
-                            ? 'border-green-600 bg-green-50 text-green-700'
+                            ? 'border-[#009966] bg-[#E6F5F0] text-[#009966]'
                             : 'border-slate-200 text-slate-600'"
                         class="rounded-full border px-3 py-1.5 text-sm"
                     >
@@ -207,7 +207,7 @@ const toggleDetail = (id) => {
                     <button
                         @click="activeFilter = 'aktif'"
                         :class="activeFilter === 'aktif'
-                            ? 'border-green-600 bg-green-50 text-green-700'
+                            ? 'border-[#009966] bg-[#E6F5F0] text-[#009966]'
                             : 'border-slate-200 text-slate-600'"
                         class="rounded-full border px-3 py-1.5 text-sm"
                     >
@@ -217,7 +217,7 @@ const toggleDetail = (id) => {
                     <button
                         @click="activeFilter = 'nonaktif'"
                         :class="activeFilter === 'nonaktif'
-                            ? 'border-green-600 bg-green-50 text-green-700'
+                            ? 'border-[#009966] bg-[#E6F5F0] text-[#009966]'
                             : 'border-slate-200 text-slate-600'"
                         class="rounded-full border px-3 py-1.5 text-sm"
                     >
@@ -287,7 +287,7 @@ const toggleDetail = (id) => {
                                         <span class="inline-flex items-center gap-2">
                                             <span
                                                 :class="item.status === 'Aktif'
-                                                    ? 'bg-green-500'
+                                                    ? 'bg-[#009966]'
                                                     : 'bg-gray-400'"
                                                 class="h-2 w-2 rounded-full"
                                             ></span>
@@ -297,7 +297,7 @@ const toggleDetail = (id) => {
 
                                     <td class="px-4 py-4 text-center">
                                         <button
-                                            class="font-medium text-slate-700 hover:text-green-700"
+                                            class="font-medium text-slate-700 hover:text-[#009966]"
                                         >
                                             ✎ Ubah
                                         </button>
@@ -364,7 +364,7 @@ const toggleDetail = (id) => {
                                                 <div class="flex items-center gap-2 text-sm font-medium text-slate-900">
                                                     <span
                                                         :class="item.status === 'Aktif'
-                                                            ? 'bg-green-500'
+                                                            ? 'bg-[#009966]'
                                                             : 'bg-gray-400'"
                                                         class="h-2 w-2 rounded-full"
                                                     ></span>
@@ -394,7 +394,7 @@ const toggleDetail = (id) => {
 
                         <select
                             v-model="perPage"
-                            class="rounded-lg border border-slate-200 bg-white px-3 py-2 outline-none focus:border-green-500"
+                            class="rounded-lg border border-slate-200 bg-white px-3 py-2 outline-none focus:border-[#009966]"
                         >
                             <option :value="20">20</option>
                             <option :value="50">50</option>
@@ -419,7 +419,7 @@ const toggleDetail = (id) => {
                         </button>
 
                         <button
-                            class="rounded-lg bg-green-600 px-4 py-2 font-medium text-white"
+                            class="rounded-lg bg-[#009966] px-4 py-2 font-medium text-white"
                         >
                             {{ currentPage }}
                         </button>
@@ -435,10 +435,10 @@ const toggleDetail = (id) => {
             </div>
         </template>
 
-     <!-- Halaman Kinerja -->
-<Kinerja v-if="activeTab === 'kinerja'" />
+        <!-- Halaman Kinerja -->
+        <Kinerja v-if="activeTab === 'kinerja'" />
 
-<!-- Halaman Komisi & Kas Bon -->
-<KomisiKasBon v-if="activeTab === 'komisi'" />
+        <!-- Halaman Komisi & Kas Bon -->
+        <KomisiKasBon v-if="activeTab === 'komisi'" />
     </div>
 </template>

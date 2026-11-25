@@ -21,7 +21,7 @@
                     Paket sekarang: basic
                 </span>
 
-                <span class="inline-flex items-center gap-1 rounded-full bg-green-50 px-3 py-1 text-xs font-medium text-green-600">
+                <span class="inline-flex items-center gap-1 rounded-full bg-[#E6F5F0] px-3 py-1 text-xs font-medium text-[#009966]">
                     <span>🔒</span>
                     Komisi mekanik otomatis
                 </span>
@@ -39,7 +39,7 @@
                 Paket, fitur, dan masa berlaku langganan ada di
                 <a
                     href="#"
-                    class="font-medium text-green-600 underline underline-offset-2"
+                    class="font-medium text-[#009966] underline underline-offset-2"
                 >
                     Langganan Saya
                 </a>.
@@ -51,7 +51,7 @@
 
                 <button
                     type="button"
-                    class="inline-flex items-center gap-2 rounded-xl bg-green-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
+                    class="inline-flex items-center gap-2 rounded-xl bg-[#009966] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#00875B]"
                 >
                     Lihat Paket & Harga
                     <span>↗</span>
@@ -91,7 +91,7 @@
             <div class="space-y-3 px-6 py-5">
 
                 <div class="flex items-start gap-3">
-                    <span class="mt-0.5 text-green-600">✧</span>
+                    <span class="mt-0.5 text-[#009966]">✧</span>
 
                     <p class="text-sm leading-6 text-slate-600">
                         Pembukuan lengkap (Daftar Akun, Catatan Pembukuan,
@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="flex items-start gap-3">
-                    <span class="mt-0.5 text-green-600">✧</span>
+                    <span class="mt-0.5 text-[#009966]">✧</span>
 
                     <p class="text-sm leading-6 text-slate-600">
                         Atur hak akses staf sendiri
@@ -108,11 +108,11 @@
                 </div>
 
                 <div class="flex items-start gap-3">
-                    <span class="mt-0.5 text-green-600">✧</span>
+                    <span class="mt-0.5 text-[#009966]">✧</span>
 
                     <p class="text-sm leading-6 text-slate-600">
                         Komisi mekanik otomatis
-                        <span class="font-medium text-green-600">
+                        <span class="font-medium text-[#009966]">
                             — yang dicari
                         </span>
                     </p>
